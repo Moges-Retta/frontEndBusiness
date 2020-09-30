@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="index.js" defer></script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="ideas.css">
+    <title>Project ethio</title>
+</head>
+<div id="wrapper">
+    <body>
+    <header>
+        <div class="row1">
+            <div class="column1 left1">
+                <img src="ideas.png" alt="logo">
+            </div>
+            <div class="column1 middle1">
+                <form method="get" action="/search">
+                    <label for="keyword"> Ideas :</label>
+                    <input type="text" id="keyword" placeholder="Ideas" name="keyword" required>
+                    <button> Search</button>
+                </form>
+                <form method="get" action="/capital">
+                    <label for="budget"> Budget :</label>
+                    <input type="number" id="budget" placeholder="birr" name="budget" required>
+                    <button> Search</button>
+                </form>
+                <form method="get" action="/location">
+                    <select class="custom-select">
+                        <option value="0">Select City:</option>
+                    </select>
+                </form>
+            </div>
+            <div class="column1 right1 ">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">About</a></li>
+                    <li><a href="/">Contact</a></li>
+                    <li><a href="/login">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="row2">
+        <nav class="column left" >
+            <ul>
+            </ul>
+        </nav>
+        <section>
+            <div class="column middle">
+                <ul>
+                </ul>
+                <dl id="productDetail">
+                </dl>
+
+            </div>
+        </section>
+        <aside>
+            <div class="column right">
+            </div>
+        </aside>
+    </div>
+    <footer>
+        <div class="row3">
+            <p>&copy; 2020 <a href="www.investInethiopia.com">www.investInethiopia.com</a> </p>
+        </div>
+    </footer>
+
+    <form method="post" action="">
+        <button>uitloggen</button>
+    </form>
+    <div id="technicalError" hidden class="error">
+        technical error , contact helpdesk
+    </div>
+
+
+    </body>
+</div>
+</html>
