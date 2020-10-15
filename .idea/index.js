@@ -1,9 +1,10 @@
 "use strict";
-document.getElementById("technicalError").style.display = "none"
-
+document.getElementById("technicalError").style.display = "none";
 const catagoryUrl = "http://localhost:8080/catagories";
 const productUrl = "http://localhost:8080/products/";
 const costUrl = "http://localhost:8080/investmentCost/";
+const searchUrl = "http://localhost:8080/search?keyword=";
+const textSearchButton = document.getElementById("mainSearch");
 
 readCatagories()
 
@@ -50,7 +51,7 @@ async function readProductDetailWithUrl(urlProductsDetail) {
 }
 // make nav bar from reading the catagories table
 function enterDetailsOf(catagories) {
-    var ul = document.getElementsByClassName("left")[0];
+    var ul = document.getElementById("left").getElementsByTagName("ul")[0];
     for (const catagory of catagories._embedded.catagoryIdNameList) {
         const li = makeLiWith(catagory.name, catagory._links.self.href);
         ul.appendChild(li);
@@ -70,56 +71,56 @@ function DetailsOf(productList) {
 function DescriptionOf(product) {
     var dl = document.getElementById("productDetail");
     while (dl.lastChild !== null) { dl.lastChild.remove(); }
-    const dt1 = document.createElement("dt");
+    const dt1 = document.createElement("h3");
         dt1.innerText=product.title;
     const dd1 =document.createElement("dd");
         dd1.innerText="";
     dl.appendChild(dt1);
     dl.appendChild(dd1);
 
-    const dt2 =document.createElement("dt");
+    const dt2 =document.createElement("h4");
         dt2.innerText="Introduction";
     const dd2 =document.createElement("dd");
         dd2.innerText=product.description;
     dl.appendChild(dt2);
     dl.appendChild(dd2);
 
-    const dt3 =document.createElement("dt");
+    const dt3 =document.createElement("h4");
         dt3.innerText="Rationale";
     const dd3 =document.createElement("dd");
         dd3.innerText=product.rationale;
     dl.appendChild(dt3);
     dl.appendChild(dd3);
 
-    const dt4 =document.createElement("dt");
+    const dt4 =document.createElement("h4");
         dt4.innerText="Market Potential";
     const dd4 =document.createElement("dd");
         dd4.innerText=product.marketPotential;
     dl.appendChild(dt4);
     dl.appendChild(dd4);
 
-    const dt5 =document.createElement("dt");
+    const dt5 =document.createElement("h4");
         dt5.innerText="Raw Material";
     const dd5 =document.createElement("dd");
         dd5.innerText=product.rawMaterial;
     dl.appendChild(dt5);
     dl.appendChild(dd5);
 
-    const dt6 =document.createElement("dt");
+    const dt6 =document.createElement("h4");
         dt6.innerText="Technology";
     const dd6 =document.createElement("dd");
         dd6.innerText=product.technology;
     dl.appendChild(dt6);
     dl.appendChild(dd6);
 
-    const dt7 =document.createElement("dt");
+    const dt7 =document.createElement("h4");
         dt7.innerText="Benefits";
     const dd7 =document.createElement("dd");
         dd7.innerText=product.benefits;
     dl.appendChild(dt7);
     dl.appendChild(dd7);
 
-    const dt8 =document.createElement("dt");
+    const dt8 =document.createElement("h4");
         dt8.innerText="Investment Cost";
     const dd8 =document.createElement("dd");
     dd8.innerText="";
@@ -135,7 +136,12 @@ function DescriptionOf(product) {
     };
     dl.append(a);
 
-
+    /*const dt9 =document.createElement("h4");
+    dt9.innerText="Search results";
+    const dd9 =document.createElement("dd");
+    dd9.innerText="";
+    dl.appendChild(dt9);
+    dl.appendChild(dd9);*/
 
 }
 
@@ -173,3 +179,9 @@ function makeLiForProduct(name, id) {
 
     return li;
 }
+document.getElementById("keyword").onkeydown=function (){
+    var keyword = document.getElementById("keyword").value;
+    var url = searchUrl.concat(this.value);
+    readProductsWithUrl(url)
+}
+

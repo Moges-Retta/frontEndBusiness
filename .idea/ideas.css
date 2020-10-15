@@ -119,6 +119,11 @@ nav a.active {
     background-color: #4CAF50;
     color: red;
 }
+.list-item
+{
+    float: left;
+    clear: both;
+}
 input{
     width: 50%;
 }
