@@ -64,6 +64,7 @@ function DetailsOf(productList) {
     while (ul.lastChild !== null) { ul.lastChild.remove(); }
     for (const product of productList._embedded.productIdNameList) {
         const li = makeLiForProduct(product.name, product.id);
+        li.dataset.category = product.catagory;
         ul.appendChild(li);
     }
 }
@@ -121,13 +122,21 @@ function DescriptionOf(product) {
     dl.appendChild(dd7);
 
     const dt8 =document.createElement("h4");
-        dt8.innerText="Investment Cost";
+        dt8.innerText="Detail study";
     const dd8 =document.createElement("dd");
-    dd8.innerText="";
+    const a = document.createElement("a");
+    a.target="_blank";
+    a.rel="noopener noreferrer";
+    a.href="http://www.projectethio.com/";
+    a.classList="btn btn-info btn-lg"
+    const span =document.createElement("span");
+    span.classList="glyphicon glyphicon-download";
+    span.innerText="Download";
+    a.appendChild(span);
+    dd8.appendChild(a);
     dl.appendChild(dt8);
     dl.appendChild(dd8);
-
-    const a =document.createElement("a");
+   /* const a =document.createElement("a");
     a.innerText="Calculate";
     a.href="#";
     a.dataset.url = costUrl.concat(product.id.toString());
@@ -135,7 +144,6 @@ function DescriptionOf(product) {
         calculateCost(this.dataset.url);
     };
     dl.append(a);
-
     /*const dt9 =document.createElement("h4");
     dt9.innerText="Search results";
     const dd9 =document.createElement("dd");
@@ -179,9 +187,8 @@ function makeLiForProduct(name, id) {
 
     return li;
 }
-document.getElementById("keyword").onkeydown=function (){
+document.getElementById("mainSearch").onclick=function (){
     var keyword = document.getElementById("keyword").value;
-    var url = searchUrl.concat(this.value);
-    readProductsWithUrl(url)
+    document.searchForm.action = "search.html";
+    sessionStorage.setItem('keyword', keyword);
 }
-

@@ -4,34 +4,26 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <meta charset="UTF-8">
-    <script src="index.js" defer></script>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="ideas.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
     <title>Project ethio</title>
-    <script>
-        function myFunction() {
-            var x = document.getElementById("advancedDiv");
-            if (x.style.display === "none" ) {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-        $('.collapse').collapse();
-
-    </script>
 </head>
-    <body>
-    <div id="wrapper">
-        <div id="technicalError" hidden class="error">
-            technical error , contact helpdesk
-        </div>
+<body>
+<div id="wrapper">
+    <div id="technicalError" hidden class="error">
+        technical error , contact helpdesk
+    </div>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -41,8 +33,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,17 +42,21 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="link.html">Links</a>
-                            <a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="http://www.projectethio.com/">Downloads</a>
+                            <a class="dropdown-item" target="_blank" rel="noopener noreferrer"
+                               href="http://www.projectethio.com/">Downloads</a>
                             <div class="dropdown-divider"></div>
                         </div>
                     </li>
-                    <li class="nav-item mr-sm-2">
-                        <a id="about" class="nav-link" href="about.html" target="_top">About</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="about.html" target="_top">About <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item active mr-sm-2">
+                    <li class="nav-item active">
                         <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="projectethio" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000" data-font-color="#000" data-coffee-color="#fff" ></script>
                     </li>
                     <!--<li class="nav-item">
+                        <a class="nav-link" href="/" tabindex="-1" aria-disabled="false">Contact</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/login">Login</a>
                     </li>-->
                 </ul>
@@ -69,7 +65,6 @@
                            placeholder="Search keyword ..." aria-label="Search">
                     <button id="mainSearch" class="btn btn-info mr-2 my-2 my-sm-0">Search</button>
                 </form>
-
                 <!--<div style="display:block;">
                     <button class="btn btn-info my-2 my-sm-0 button2" id="advanced"
                         onclick="myFunction()">Advanced Search</button>
@@ -94,16 +89,40 @@
                 </select>
             </form>-->
         </div>
-        <nav id = "left" class="column left" >
-            <ul>
-            </ul>
+        <nav id="left" class="column left">
         </nav>
         <section>
             <div class="column middle">
+
+                <span class="h2">Useful links</span>
                 <ul>
+                    <li>
+                        <a href="http://www.investethiopia.gov.et/" target="_blank" rel="noopener noreferrer">
+                            Ethiopian investment commision
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://ethiopianchamber.com/" target="_blank" rel="noopener noreferrer">
+                            Ethiopian chamber of commerce
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.mor.gov.et/" target="_blank" rel="noopener noreferrer">
+                            Ethiopian ministry of revenues
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.ethiostandards.org/" target="_blank" rel="noopener noreferrer">
+                            Ethiopian Standard Agency (ESA)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.mofed.gov.et/" target="_blank" rel="noopener noreferrer">
+                            Ministry of Finanace and Economic Development
+                        </a>
+                    </li>
+
                 </ul>
-                <dl id="productDetail">
-                </dl>
             </div>
         </section>
         <aside>
@@ -112,15 +131,10 @@
     </div>
     <footer class="row3 footer-copyright text-center ">
             <span>&copy; 2020 <a target="_blank" rel="noopener noreferrer"
-                   href="http://www.projectethio.com/">www.projectethio.com</a>
+                                 href="http://www.projectethio.com/">www.projectethio.com</a>
             </span>
-
     </footer>
 
-    <!--<form method="post" action="">
-        <button class="btn btn-primary" >uitloggen</button>
-    </form>-->
-
 </div>
-    </body>
+</body>
 </html>
