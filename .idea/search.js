@@ -4,6 +4,7 @@ const searchUrl = "http://localhost:8080/search?keyword=";
 const productUrl = "http://localhost:8080/products/";
 
 var keyword = sessionStorage.getItem("keyword");
+
 if(keyword==null){
     technicalError();
 }else{

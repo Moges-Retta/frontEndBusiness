@@ -177,3 +177,8 @@ function makeHyperlinkWith(name, url) {
 function technicalError() {
     document.getElementById("technicalError").hidden = false;
 }
+document.getElementById("mainSearch").onclick=function (){
+    var keyword = document.getElementById("keyword").value;
+    document.searchForm.action = "search.html";
+    sessionStorage.setItem('keyword', keyword);
+}
