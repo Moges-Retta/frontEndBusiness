@@ -33,9 +33,18 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 nav-pills nav-fill">
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Ideas
+                        </a>
+                        <div class="dropdown-menu" id="ideas" aria-labelledby="navbarDropdown2">
+                            <div class="dropdown-divider"></div>
+                        </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -60,12 +69,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/login">Login</a>
                     </li>-->
+                    <form name="searchForm" id="searchForm" method="get" class="form-inline my-2 my-lg-0 searchHide">
+                        <input id="keyword" class="form-control mr-sm-2" type="search" name="keyword"
+                               placeholder="Search keyword ..." aria-label="Search">
+                        <button id="mainSearch" class="btn btn-info mr-2 my-2 my-sm-0">Search</button>
+                    </form>
                 </ul>
-                <form  name="searchForm" id="searchForm" method="get" class="form-inline my-2 my-lg-0 searchHide">
-                    <input id="keyword" class="form-control mr-sm-2" type="search" name="keyword"
-                           placeholder="Search keyword ..." aria-label="Search">
-                    <button id="mainSearch" class="btn btn-info mr-2 my-2 my-sm-0">Search</button>
-                </form>
+
                 <!--<div style="display:block;">
                     <button class="btn btn-info my-2 my-sm-0 button2" id="advanced"
                         onclick="myFunction()">Advanced Search</button>

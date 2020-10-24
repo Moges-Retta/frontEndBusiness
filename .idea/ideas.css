@@ -4,7 +4,7 @@
 }
 #wrapper{
     width: 940px;
-    background-color:white;
+    background-color:snow;
     margin: auto;
     border: 3px solid grey;
     border-radius: 10px;
@@ -21,6 +21,7 @@ body{
     background: linear-gradient(to bottom,  #96c56f 0%,#a9db80 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#96c56f', endColorstr='#a9db80',GradientType=0 ); /* IE6-9 */
     height: auto;
+
 }
 .footer{
     color:#777;
@@ -67,7 +68,7 @@ body{
 .middle {
     text-align: justify;
     width: 75%;
-    background-color: white;
+    background-color: snow;
     padding: 10px;
 }
 .middle1 {
@@ -154,4 +155,26 @@ dd, dt {
 }
 #navbarTogglerDemo03{
     border-radius: 7px 7px 7px 7px;
+}
+#title{
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+#logo{
+    width: 934px;
+}
+#ideas {
+    width:300px;
+    height:400px;
+    overflow-x:auto;
+    overflow-y:auto;
+}
+img{
+    width:500px;
+    margin-left: 250px;
+}
+
+.fb-like{
+    margin-left: 600px;
+    margin-top: 10px;
 }
