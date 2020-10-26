@@ -3,8 +3,13 @@ document.getElementById("technicalError").style.display = "none";
 const catagoryUrl = "http://localhost:8080/catagories";
 const searchUrl = "http://localhost:8080/search?keyword=";
 const textSearchButton = document.getElementById("mainSearch");
+const productUrl = "http://localhost:8080/products/";
+
+var id = Math.floor((Math.random() * 2) + 1);
+var urlProducts = catagoryUrl.concat("/").concat(id.toString());
 
 readCatagories()
+readProductsWithUrl(urlProducts)
 
 async function readCatagories() {
     try {
@@ -12,20 +17,6 @@ async function readCatagories() {
         if (response.ok) {
             const catagories = await response.json();
             enterDetailsOf(catagories);
-        } else {
-            technicalError();
-        }
-    } catch {
-        technicalError();
-    }
-}
-
-async function readProductsWithUrl(urlProducts,catagory) {
-    try {
-        const response = await fetch(urlProducts);
-        if (response.ok) {
-            const productList = await response.json();
-            DetailsOf(productList,catagory);
         } else {
             technicalError();
         }
@@ -63,4 +54,45 @@ document.getElementById("mainSearch").onclick=function (){
     var keyword = document.getElementById("keyword").value;
     document.searchForm.action = "search.html";
     sessionStorage.setItem('keyword', keyword);
+}
+
+// making a least of featured projects
+async function readProductsWithUrl(urlProducts) {
+    try {
+        const response = await fetch(urlProducts);
+        if (response.ok) {
+            const productList = await response.json();
+            DetailsOf(productList);
+        } else {
+            technicalError();
+        }
+    } catch {
+        technicalError();
+    }
+}
+// make list of projects under a catagory
+function DetailsOf(productList) {
+    var ul = document.getElementsByClassName("featured")[0].getElementsByTagName("ul")[0];
+    while (ul.lastChild !== null) { ul.lastChild.remove(); }
+    for (const product of productList._embedded.productIdNameList) {
+        const li = makeLiForProduct(product.name, product.id);
+        li.dataset.category = product.catagory;
+        ul.appendChild(li);
+    }
+}
+// make a list of projects
+function makeLiForProduct(name, id) {
+    var Url = productUrl.concat(id.toString());
+    const li = document.createElement("li");
+    const hyperlink = document.createElement("a");
+    hyperlink.innerText = name;
+    hyperlink.href = "ideas.html";
+    hyperlink.dataset.url = Url;
+    hyperlink.dataset.id = id;
+    hyperlink.onclick = function () {
+        sessionStorage.setItem("projectId",this.dataset.id)
+    };
+    li.appendChild(hyperlink);
+
+    return li;
 }

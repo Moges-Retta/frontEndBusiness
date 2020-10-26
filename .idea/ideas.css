@@ -170,11 +170,42 @@ dd, dt {
     overflow-y:auto;
 }
 img{
-    width:500px;
-    margin-left: 250px;
+    width:available;
+    float: left;
 }
 
 .fb-like{
-    margin-left: 600px;
-    margin-top: 10px;
+    margin-left: 100px;
+    margin-top: 25px;
+}
+
+.leftHome {
+    width: 0%;
+    background-color: snow;
+    height: 100%;
+}
+.rightHome{
+    width: 50%;
+    background-color: snow;
+    height: 100%;
+}
+.middleHome {
+    text-align: justify;
+    width: 40%;
+    background-color: snow;
+    padding: 10px;
+}
+.searchHome {
+padding-top: 20px;
+    padding-left: 100px;
+}
+.moto{
+    padding-top: 50px;
+    padding-left: 100px;
+}
+.featured{
+    padding-left: 20px;
+}
+.featuredTitle{
+    margin-left: 30px;
 }

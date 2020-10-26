@@ -5,6 +5,14 @@ const productUrl = "http://localhost:8080/products/";
 
 var catagoryUrlkey = sessionStorage.getItem("catagoryUrl");
 var catagoryName =sessionStorage.getItem("catagoryName");
+var id =sessionStorage.getItem("projectId");
+var index = 1; // counting for display of the first project idea
+
+if (id!=null){
+    var urlProduct = productUrl.concat(id.toString());
+    readProductDetailWithUrl(urlProduct)
+    index=id;
+}
 
 readProductsWithUrl(catagoryUrlkey,catagoryName)
 readCatagories()
@@ -24,7 +32,6 @@ async function readProductsWithUrl(urlProducts,catagory) {
 }
 // make list of projects under a catagory
 function DetailsOf(productList,catagory) {
-    var index = 1; // counting for display of the first project idea
     var h4 = document.getElementsByClassName("left")[0].getElementsByTagName("h4")[0];;
     h4.innerText=catagory;
     h4.classList="h4";
@@ -170,7 +177,6 @@ function makeHyperlinkWith(name, url) {
     hyperlink.onclick = function () {
         sessionStorage.setItem("catagoryUrl",this.dataset.url)
         sessionStorage.setItem("catagoryName",this.innerText)
-        // readProductsWithUrl(this.dataset.url,name);
     };
     return hyperlink;
 }
