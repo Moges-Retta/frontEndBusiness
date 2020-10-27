@@ -5,8 +5,8 @@ const searchUrl = "http://localhost:8080/search?keyword=";
 const textSearchButton = document.getElementById("mainSearch");
 const productUrl = "http://localhost:8080/products/";
 
-var id = Math.floor((Math.random() * 2) + 1);
-var urlProducts = catagoryUrl.concat("/").concat(id.toString());
+var idRandom = Math.floor((Math.random() * 2) + 1);
+var urlProducts = catagoryUrl.concat("/").concat(idRandom.toString());
 
 readCatagories()
 readProductsWithUrl(urlProducts)
@@ -75,14 +75,16 @@ function DetailsOf(productList) {
     var ul = document.getElementsByClassName("featured")[0].getElementsByTagName("ul")[0];
     while (ul.lastChild !== null) { ul.lastChild.remove(); }
     for (const product of productList._embedded.productIdNameList) {
-        const li = makeLiForProduct(product.name, product.id,product.category);
+        const li = makeLiForProduct(product.name, product.id,product.category,product.categoryId);
         li.dataset.category = product.catagory;
         ul.appendChild(li);
     }
 }
 // make a list of projects
-function makeLiForProduct(name, id,catagorySelected) {
+function makeLiForProduct(name, id,catagorySelected,categoryId) {
     var Url = productUrl.concat(id.toString());
+    var Url = catagoryUrl.concat(id.toString());
+
     const li = document.createElement("li");
     const hyperlink = document.createElement("a");
     hyperlink.innerText = name;
@@ -92,6 +94,8 @@ function makeLiForProduct(name, id,catagorySelected) {
     hyperlink.onclick = function () {
         sessionStorage.setItem("projectId",this.dataset.id);
         sessionStorage.setItem("catagoryName",catagorySelected);
+        sessionStorage.setItem("catagoryUrl",catagoryUrl.concat("/").concat(categoryId.toString()))
+
     };
     li.appendChild(hyperlink);
 

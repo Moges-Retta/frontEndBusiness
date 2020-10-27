@@ -6,10 +6,13 @@ const productUrl = "http://localhost:8080/products/";
 var catagoryUrlkey = sessionStorage.getItem("catagoryUrl");
 var catagoryName =sessionStorage.getItem("catagoryName");
 var id =sessionStorage.getItem("projectId");
+var catagoryId =sessionStorage.getItem("catagoryId");
 
-if (id!=null){
+if (id!=null&&catagoryUrlkey!=null&&catagoryName!=null){
     var urlProduct = productUrl.concat(id.toString());
-    readProductDetailWithUrl(urlProduct)
+    readProductsWithUrl(catagoryUrlkey,catagoryName)
+}else {
+    technicalError();
 }
 
 readProductsWithUrl(catagoryUrlkey,catagoryName)
