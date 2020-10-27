@@ -75,13 +75,13 @@ function DetailsOf(productList) {
     var ul = document.getElementsByClassName("featured")[0].getElementsByTagName("ul")[0];
     while (ul.lastChild !== null) { ul.lastChild.remove(); }
     for (const product of productList._embedded.productIdNameList) {
-        const li = makeLiForProduct(product.name, product.id);
+        const li = makeLiForProduct(product.name, product.id,product.category);
         li.dataset.category = product.catagory;
         ul.appendChild(li);
     }
 }
 // make a list of projects
-function makeLiForProduct(name, id) {
+function makeLiForProduct(name, id,catagorySelected) {
     var Url = productUrl.concat(id.toString());
     const li = document.createElement("li");
     const hyperlink = document.createElement("a");
@@ -90,7 +90,8 @@ function makeLiForProduct(name, id) {
     hyperlink.dataset.url = Url;
     hyperlink.dataset.id = id;
     hyperlink.onclick = function () {
-        sessionStorage.setItem("projectId",this.dataset.id)
+        sessionStorage.setItem("projectId",this.dataset.id);
+        sessionStorage.setItem("catagoryName",catagorySelected);
     };
     li.appendChild(hyperlink);
 

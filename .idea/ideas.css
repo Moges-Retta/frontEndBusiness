@@ -96,7 +96,7 @@ body{
 .row3 {
     background-color: black;
     color:white;
-    height:50px;
+    height:75px;
     border-radius: 0 0 7px 7px;
 
 }
@@ -177,6 +177,7 @@ img{
 .fb-like{
     margin-left: 100px;
     margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .leftHome {

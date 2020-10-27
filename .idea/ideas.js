@@ -6,12 +6,10 @@ const productUrl = "http://localhost:8080/products/";
 var catagoryUrlkey = sessionStorage.getItem("catagoryUrl");
 var catagoryName =sessionStorage.getItem("catagoryName");
 var id =sessionStorage.getItem("projectId");
-var index = 1; // counting for display of the first project idea
 
 if (id!=null){
     var urlProduct = productUrl.concat(id.toString());
     readProductDetailWithUrl(urlProduct)
-    index=id;
 }
 
 readProductsWithUrl(catagoryUrlkey,catagoryName)
@@ -38,21 +36,20 @@ function DetailsOf(productList,catagory) {
     var ul = document.getElementsByClassName("left")[0].getElementsByTagName("ul")[0];
     while (ul.lastChild !== null) { ul.lastChild.remove(); }
     for (const product of productList._embedded.productIdNameList) {
-        const li = makeLiForProduct(product.name, product.id,index);
+        const li = makeLiForProduct(product.name, product.id, product.id==productList._embedded.productIdNameList[0].id);
         li.dataset.category = product.catagory;
         ul.appendChild(li);
-        index++;
     }
 }
 // make a list of projects
-function makeLiForProduct(name, id,index) {
+function makeLiForProduct(name, id,firstproject) {
     var Url = productUrl.concat(id.toString());
     const li = document.createElement("li");
     const hyperlink = document.createElement("a");
     hyperlink.innerText = name;
     hyperlink.href = "#";
     hyperlink.dataset.url = Url;
-    if(index==1){
+    if(firstproject){
         readProductDetailWithUrl(Url);
     }
     hyperlink.onclick = function () {
