@@ -28,9 +28,12 @@ async function readCatagories() {
 // make nav bar from reading the catagories table
 function enterDetailsOf(catagories) {
     var div = document.getElementById("ideas");//.getElementsByTagName("ul")[0];
+    var divG = document.getElementById("groupList");//.getElementsByTagName("ul")[0];
     for (const catagory of catagories._embedded.catagoryIdNameList) {
         const a = makeHyperlinkWith(catagory.name, catagory._links.self.href);
+        const form = makeFormWith(catagory.name, catagory._links.self.href);
         div.appendChild(a);
+        divG.appendChild(form);
     }
 }
 // make a list of catagorues
@@ -45,6 +48,22 @@ function makeHyperlinkWith(name, url) {
         sessionStorage.setItem("catagoryName",this.innerText)
     };
     return hyperlink;
+}
+// make a list of catagorues
+function makeFormWith(name, url) {
+    const form = document.createElement("form");
+    const button = document.createElement("button");
+    button.innerText = name;
+    form.action = "ideas.html";
+    form.method="post";
+    button.dataset.url = url;
+    button.classList="btn btn-info btn-sm";
+    button.onclick = function () {
+        sessionStorage.setItem("catagoryUrl",this.dataset.url)
+        sessionStorage.setItem("catagoryName",this.innerText)
+    };
+    form.appendChild(button);
+    return form;
 }
 
 function technicalError() {
@@ -101,3 +120,4 @@ function makeLiForProduct(name, id,catagorySelected,categoryId) {
 
     return li;
 }
+

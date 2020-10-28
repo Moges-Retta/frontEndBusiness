@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -32,8 +31,29 @@
         <div id="technicalError" hidden class="error">
             technical error , contact helpdesk
         </div>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg" style="background-color: white;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" ></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <img src="images/LOGO1.png" alt="logo">
+                <div class="nav-item mr-sm-2">
+                    <a id="about" class="nav-link" href="about.html" target="_top">About</a>
+                </div>
+                <div class="nav-item mr-sm-2">
+                    <a id="about" class="nav-link" href="register.html" target="_top">Register</a>
+                </div>
+                <div class="nav-item mr-sm-2">
+                    <a id="about" class="nav-link" href="contact.html" target="_top">Contact</a>
+                </div>
+                <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="projectethio" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000" data-font-color="#000" data-coffee-color="#fff" ></script>
+            </div>
+        </nav>
+
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -41,13 +61,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0 nav-pills nav-fill">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><h2>ethio projects</h2> <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Ideas
                         </a>
@@ -65,23 +79,14 @@
                             <div class="dropdown-divider"></div>
                         </div>
                     </li>
-                    <!--<li class="nav-item mr-sm-2">
-                        <a id="about" class="nav-link" href="about.html" target="_top">About</a>
-                    </li>-->
-                    <li class="nav-item active mr-sm-2">
-                        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="projectethio" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000" data-font-color="#000" data-coffee-color="#fff" ></script>
-                    </li>
                 </ul>
             </div>
         </nav>
     </header>
-        <div class="row2">
+        <div class="row2Home">
             <nav class="column leftHome" >
             </nav>
             <section>
-                <div class="column middleHome">
-                    <img src="images/InvestInEthiopia.jpg" alt="Invest in Ethiopia">
-                </div>
             </section>
             <aside>
                 <div class="column rightHome">
@@ -93,26 +98,34 @@
                     <h2 class="moto"><span class="text-success">Invest</span>
                         <span class="text-warning">in <span class="text-danger">ethiopia</span></span>
                     </h2>
-                    <form name="searchForm" id="searchForm" method="get" class="form-inline my-2 my-lg-0 searchHome">
+                    <!--<form name="searchForm" id="searchForm" method="get" class="form-inline my-2 my-lg-0 searchHome">
                         <input id="keyword" class="form-control mr-sm-2" type="search" name="keyword"
-                               placeholder="Ideas e.g. coffee ..." aria-label="Search" required>
+                               placeholder="Ideas e.g. coffee ..." aria-label="Search" required autofocus>
                         <button id="mainSearch" class="btn btn-info mr-2 my-2 my-sm-0">Search</button>
+                    </form>-->
+                    <form name="searchForm" id="searchForm" method="get" class="form-inline my-2 my-lg-0 searchHome">
+                        <div class="input-group input-group-lg">
+                            <input id="keyword" class="form-control" type="search" name="keyword"
+                                   aria-describedby="inputGroup-sizing-lg"
+                                   placeholder="Ideas e.g. coffee ..." aria-label="Search" required autofocus>
+                            <button id="mainSearch" class="btn btn-info mr-2 my-2 my-sm-0 fa fa-search"></button>
+                        </div>
                     </form>
-
                 </div>
             </aside>
         </div>
+        <div id="buttonGroup">
+            <h3 id="buttonGroupTitle" class="h3">Select sectors  </h3>
+            <ul id="groupList">
+            </ul>
 
+        </div>
+        <h3 class="featuredTitle">Featured posts</h3>
         <div class="featured">
-            <h3 class="featuredTitle">Featured posts</h3>
             <ul></ul>
-
         </div>
     <footer class="row3 footer-copyright text-center ">
         <ul>
-            <li>
-                <a class="nav-link" href="about.html" target="_top">About <span class="sr-only">(current)</span></a>
-            </li>
             <li>
                 <span>&copy; 2020 <a target="_blank" rel="noopener noreferrer"
                                      href="http://www.projectethio.com/">www.projectethio.com</a>

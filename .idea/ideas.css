@@ -79,6 +79,11 @@ body{
     padding-top: 10px;
 }
 
+.row2Home:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 .row2:after {
     content: "";
     display: table;
@@ -93,6 +98,12 @@ body{
 .row1 {
     background-color: lightseagreen;
     width: 100%;
+}
+.row2Home{
+    background-image: url("images/ethiopia.png");
+    background-repeat: no-repeat;
+    background-size: 937px;
+    padding-bottom: 100px;
 }
 .row3 {
     background-color: black;
@@ -178,8 +189,8 @@ img{
 
 .fb-like{
     margin-left: 100px;
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .leftHome {
@@ -189,26 +200,25 @@ img{
 }
 .rightHome{
     width: 50%;
-    background-color: snow;
     height: 100%;
+    float: right;
 }
 .middleHome {
     text-align: justify;
     width: 40%;
     background-color: snow;
     padding: 10px;
+
 }
 .searchHome {
-padding-top: 20px;
-    padding-left: 100px;
+    padding-top: 10px;
+    padding-left: 50px;
 }
 .moto{
     padding-top: 50px;
-    padding-left: 100px;
+    padding-left: 50px;
 }
-.featured{
-    padding-left: 25px;
-}
+
 .featured{
     padding-left: 25px;
     width:400px;
@@ -216,7 +226,23 @@ padding-top: 20px;
     overflow-y:auto;
 }
 .featuredTitle{
-    margin-left: 2px;
+    margin-left: 25px;
+}
+#buttonGroup{
+    float: right;
+    width: 500px;
+    line-height: 15px;
+    display: inline;
+}
+#buttonGroup form{
+    display: inline;
+}
+#buttonGroup form button{
+    margin: 5px;
+    padding: 10px;
+}
+#buttonGroupTitle{
+    padding-left: 8px
 }
 .fa {
     padding: 20px;
