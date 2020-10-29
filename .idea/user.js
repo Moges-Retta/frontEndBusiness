@@ -18,36 +18,61 @@ async function handleFormSubmit(event) {
         technicalError();
     }
 }
-async function postFormDataAsJson( url, formData ) {
-
+async function postFormDataAsJson(url, formData) {
     const plainFormData = Object.fromEntries(formData.entries());
     const formDataJsonString = JSON.stringify(plainFormData);
-    const fetchOptions = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: formDataJsonString
-    };
+    const email = plainFormData.email;
+    const id = await checkUserWith(email);
+    if(id){
+        show(-1);
+        throw new Error("use another email!");
+    }else{
+        const fetchOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: formDataJsonString
+        };
         const response = await fetch(url, fetchOptions);
-    show(response)
-        if (!response.ok) {
+        if(response.ok){
+            process(response)
+        }else{
             const errorMessage = await response.text();
             throw new Error(errorMessage);
         }
         return response.json();
+    }
 }
+
+async function checkUserWith(email) {
+    const url = registerUrl.concat("/").concat(email);
+    const id = await fetch(url);
+    return id;
+}
+
 function technicalError() {
     document.getElementById("technicalError").hidden = false;
 }
-function show(response){
+function process(response){
     var code = response.headers.get("Location");
-    var location = code.toString().lastIndexOf("/");
-    var id = code.substring(location);
-    var span = document.getElementById("sucess");
-    if(id){
-        span.innerHTML = "<h4 class='sucess'>Registration sucessful</h4>";
+    if(code){
+        var location = code.toString().lastIndexOf("/");
+        var id = code.substring(location);
+        show(id);
     }else{
+        show(0);
+    }
+}
+function show(id){
+    var span = document.getElementById("sucess");
+    if(id==0){
         span.innerHTML = "<h4 class='error'>Registration Not sucessful</h4>";
+    }else if(id==-1){
+        span.innerHTML = "<h4 class='error'>This email address is already used!</h4>";
+        document.getElementById("registerButton").disabled = false;
+    }else{
+        span.innerHTML = "<h4 class='sucess'>Registration sucessful</h4>";
+        document.getElementById("registerButton").disabled = false;
     }
 }
