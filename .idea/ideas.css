@@ -168,6 +168,9 @@ dd, dt {
 .error {
     color: red;
 }
+.sucess{
+    color: green;
+}
 
 #title{
     margin-left: 10px;
