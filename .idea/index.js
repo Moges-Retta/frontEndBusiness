@@ -5,7 +5,7 @@ const searchUrl = "http://localhost:8080/search?keyword=";
 const textSearchButton = document.getElementById("mainSearch");
 const productUrl = "http://localhost:8080/products/";
 
-var idRandom = Math.floor((Math.random() * 2) + 1);
+var idRandom = Math.floor((Math.random() * 3) + 1);
 var urlProducts = catagoryUrl.concat("/").concat(idRandom.toString());
 
 readCatagories()
@@ -31,7 +31,7 @@ function enterDetailsOf(catagories) {
     var divG = document.getElementById("groupList");//.getElementsByTagName("ul")[0];
     for (const catagory of catagories._embedded.catagoryIdNameList) {
         const a = makeHyperlinkWith(catagory.name, catagory._links.self.href);
-        const form = makeFormWith(catagory.name, catagory._links.self.href);
+        const form = makeFormWith(catagory.name, catagory._links.self.href,catagory.count);
         div.appendChild(a);
         divG.appendChild(form);
     }
@@ -50,10 +50,10 @@ function makeHyperlinkWith(name, url) {
     return hyperlink;
 }
 // make a list of catagorues
-function makeFormWith(name, url) {
+function makeFormWith(name, url,count) {
     const form = document.createElement("form");
     const button = document.createElement("button");
-    button.innerText = name;
+    button.innerText = name.toString().concat("(").concat(count.toString()).concat(")");
     form.action = "ideas.html";
     form.method="post";
     button.dataset.url = url;
