@@ -8,8 +8,8 @@
     margin: auto;
     border: 3px solid grey;
 }
-.webTitle{
-    color: white;
+#extraMenus{
+    margin-left: 140px;
 }
 body{
     font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -22,7 +22,6 @@ body{
     background: linear-gradient(to bottom,  #96c56f 0%,#a9db80 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#96c56f', endColorstr='#a9db80',GradientType=0 ); /* IE6-9 */
     height: auto;
-
 }
 .footer{
     color:#777;
@@ -191,7 +190,7 @@ img{
 }
 
 .fb-like{
-    margin-left: 100px;
+    margin-left: 50px;
     margin-top: 20px;
     margin-bottom: 10px;
 }
