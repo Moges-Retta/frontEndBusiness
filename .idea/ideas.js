@@ -5,11 +5,11 @@ const productUrl = "http://localhost:8080/products/";
 
 var catagoryUrlkey = sessionStorage.getItem("catagoryUrl");
 var catagoryName =sessionStorage.getItem("catagoryName");
-var id =sessionStorage.getItem("projectId");
+var idSelected =sessionStorage.getItem("projectId");
 var catagoryId =sessionStorage.getItem("catagoryId");
 
-if (id!=null&&catagoryUrlkey!=null&&catagoryName!=null){
-    var urlProduct = productUrl.concat(id.toString());
+if (idSelected!=null&&catagoryUrlkey!=null&&catagoryName!=null){
+    var urlProduct = productUrl.concat(idSelected.toString());
     readProductsWithUrl(catagoryUrlkey,catagoryName)
 }else {
     technicalError();
@@ -54,6 +54,11 @@ function makeLiForProduct(name, id,firstproject) {
     hyperlink.dataset.url = Url;
     if(firstproject){
         readProductDetailWithUrl(Url);
+    }
+    if(idSelected!=null){
+        var urlProduct = productUrl.concat(idSelected.toString());
+        readProductDetailWithUrl(urlProduct);
+        sessionStorage.removeItem("projectId")
     }
     hyperlink.onclick = function () {
         readProductDetailWithUrl(this.dataset.url);

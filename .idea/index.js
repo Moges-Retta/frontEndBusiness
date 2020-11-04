@@ -5,7 +5,7 @@ const searchUrl = "http://localhost:8080/search?keyword=";
 const textSearchButton = document.getElementById("mainSearch");
 const productUrl = "http://localhost:8080/products/";
 
-var idRandom = Math.floor((Math.random() * 3) + 1);
+var idRandom = Math.floor((Math.random() * 6) + 1);
 var urlProducts = catagoryUrl.concat("/").concat(idRandom.toString());
 
 readCatagories()
