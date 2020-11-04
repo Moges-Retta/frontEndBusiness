@@ -8,7 +8,14 @@ const productUrl = "http://localhost:8080/products/";
 var idRandom = Math.floor((Math.random() * 6) + 1);
 var urlProducts = catagoryUrl.concat("/").concat(idRandom.toString());
 
-readCatagories()
+var catagoryList = sessionStorage.getItem("catagories");
+
+if(catagoryList==null){
+    readCatagories()
+}else{
+    enterDetailsOf(JSON.parse(catagoryList));
+}
+
 readProductsWithUrl(urlProducts)
 
 async function readCatagories() {
@@ -16,6 +23,7 @@ async function readCatagories() {
         const response = await fetch(catagoryUrl);
         if (response.ok) {
             const catagories = await response.json();
+            sessionStorage.setItem("catagories",JSON.stringify(catagories));
             enterDetailsOf(catagories);
         } else {
             technicalError();

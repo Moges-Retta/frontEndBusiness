@@ -7,6 +7,7 @@ var catagoryUrlkey = sessionStorage.getItem("catagoryUrl");
 var catagoryName =sessionStorage.getItem("catagoryName");
 var idSelected =sessionStorage.getItem("projectId");
 var catagoryId =sessionStorage.getItem("catagoryId");
+var catagoryList = sessionStorage.getItem("catagories");
 
 if (idSelected!=null&&catagoryUrlkey!=null&&catagoryName!=null){
     var urlProduct = productUrl.concat(idSelected.toString());
@@ -16,8 +17,12 @@ if (idSelected!=null&&catagoryUrlkey!=null&&catagoryName!=null){
 }
 
 readProductsWithUrl(catagoryUrlkey,catagoryName)
-readCatagories()
 
+if(catagoryList==null){
+    readCatagories()
+}else{
+    enterDetailsOf(JSON.parse(catagoryList));
+}
 async function readProductsWithUrl(urlProducts,catagory) {
     try {
         const response = await fetch(urlProducts);
@@ -156,6 +161,7 @@ async function readCatagories() {
         const response = await fetch(catagoryUrl);
         if (response.ok) {
             const catagories = await response.json();
+            sessionStorage.setItem("catagories",JSON.stringify(catagories));
             enterDetailsOf(catagories);
         } else {
             technicalError();
