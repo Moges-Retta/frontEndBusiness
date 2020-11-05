@@ -96,47 +96,61 @@ function DescriptionOf(product) {
     dl.appendChild(dt1);
     dl.appendChild(dd1);
 
-    const dt2 =document.createElement("h4");
-    dt2.innerText="Introduction";
-    const dd2 =document.createElement("dd");
-    dd2.innerText=product.description;
-    dl.appendChild(dt2);
-    dl.appendChild(dd2);
+    if((product.description).toString()!=" ") {
 
-    const dt3 =document.createElement("h4");
+        const dt2 = document.createElement("h4");
+        dt2.innerText = "Introduction";
+        const dd2 = document.createElement("dd");
+        dd2.innerText = product.description;
+        dl.appendChild(dt2);
+        dl.appendChild(dd2);
+    }
+
+    if((product.rationale).toString()!=" "){
+        const dt3 =document.createElement("h4");
     dt3.innerText="Rationale";
     const dd3 =document.createElement("dd");
     dd3.innerText=product.rationale;
     dl.appendChild(dt3);
     dl.appendChild(dd3);
+    }
+    if((product.marketPotential).toString()!=" ") {
 
-    const dt4 =document.createElement("h4");
-    dt4.innerText="Market Potential";
-    const dd4 =document.createElement("dd");
-    dd4.innerText=product.marketPotential;
-    dl.appendChild(dt4);
-    dl.appendChild(dd4);
+        const dt4 = document.createElement("h4");
+        dt4.innerText = "Market Potential";
+        const dd4 = document.createElement("dd");
+        dd4.innerText = product.marketPotential;
+        dl.appendChild(dt4);
+        dl.appendChild(dd4);
+    }
 
-    const dt5 =document.createElement("h4");
-    dt5.innerText="Raw Material";
-    const dd5 =document.createElement("dd");
-    dd5.innerText=product.rawMaterial;
-    dl.appendChild(dt5);
-    dl.appendChild(dd5);
+    if((product.rawMaterial).toString()!=" ") {
 
-    const dt6 =document.createElement("h4");
-    dt6.innerText="Technology";
-    const dd6 =document.createElement("dd");
-    dd6.innerText=product.technology;
-    dl.appendChild(dt6);
-    dl.appendChild(dd6);
+        const dt5 = document.createElement("h4");
+        dt5.innerText = "Raw Material";
+        const dd5 = document.createElement("dd");
+        dd5.innerText = product.rawMaterial;
+        dl.appendChild(dt5);
+        dl.appendChild(dd5);
+    }
+    if((product.technology).toString()!=" ") {
 
-    const dt7 =document.createElement("h4");
-    dt7.innerText="Benefits";
-    const dd7 =document.createElement("dd");
-    dd7.innerText=product.benefits;
-    dl.appendChild(dt7);
-    dl.appendChild(dd7);
+        const dt6 = document.createElement("h4");
+        dt6.innerText = "Technology";
+        const dd6 = document.createElement("dd");
+        dd6.innerText = product.technology;
+        dl.appendChild(dt6);
+        dl.appendChild(dd6);
+    }
+    if((product.benefits).toString()!=" ") {
+
+        const dt7 = document.createElement("h4");
+        dt7.innerText = "Benefits";
+        const dd7 = document.createElement("dd");
+        dd7.innerText = product.benefits;
+        dl.appendChild(dt7);
+        dl.appendChild(dd7);
+    }
 
     const dt8 =document.createElement("h4");
     dt8.innerText="Detail study";
