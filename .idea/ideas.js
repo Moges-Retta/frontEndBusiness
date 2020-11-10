@@ -159,7 +159,7 @@ function DescriptionOf(product) {
     a.target="_blank";
     a.rel="noopener noreferrer";
     a.href="http://www.projectethio.com/";
-    a.classList="btn btn-info btn-lg"
+    a.classList="btn btn-success btn-lg"
     const span =document.createElement("span");
     span.classList="glyphicon glyphicon-download";
     span.innerText="Download";

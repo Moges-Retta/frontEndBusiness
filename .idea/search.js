@@ -27,14 +27,19 @@ async function readProductsWithUrl(urlProducts) {
     }
 }
 function DetailsOf(productList) {
-    var ul = document.getElementsByClassName("middle")[0].getElementsByTagName("ul")[0];
+    var ul = document.getElementsByClassName("left")[0].getElementsByTagName("ul")[0];
+    var h3 = document.createElement("h3");
+    h3.innerText="Search results";
     while (ul.lastChild !== null) { ul.lastChild.remove(); }
+    ul.append(h3);
     for (const product of productList._embedded.productIdNameList) {
         const li = makeLiForProduct(product.name, product.id);
         li.dataset.category = product.catagory;
         ul.appendChild(li);
     }
 }
+// read one product form the list of search results
+var foo = true;
 // make a list of projects
 function makeLiForProduct(name, id) {
     var Url = productUrl.concat(id.toString());
@@ -47,6 +52,11 @@ function makeLiForProduct(name, id) {
         readProductDetailWithUrl(this.dataset.url);
     };
     li.appendChild(hyperlink);
+    // read one product form the list of search results
+    if(foo){
+        readProductDetailWithUrl(Url);
+        foo=false;
+    }
 
     return li;
 }
@@ -65,7 +75,7 @@ async function readProductDetailWithUrl(urlProductsDetail) {
 }
 // make list of projects under a catagory
 function DetailsOf(productList) {
-    var ul = document.getElementsByClassName("middle")[0].getElementsByTagName("ul")[0];
+    var ul = document.getElementsByClassName("left")[0].getElementsByTagName("ul")[0];
     while (ul.lastChild !== null) { ul.lastChild.remove(); }
     for (const product of productList._embedded.productIdNameList) {
         const li = makeLiForProduct(product.name, product.id);
@@ -137,6 +147,7 @@ function DescriptionOf(product) {
     a.target="_blank";
     a.rel="noopener noreferrer";
     a.href="http://www.projectethio.com/";
+    a.classList="btn btn-success btn-lg"
     dd8.appendChild(a);
     dl.appendChild(dt8);
     dl.appendChild(dd8);

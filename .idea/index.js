@@ -5,10 +5,10 @@ const searchUrl = "http://localhost:8080/search?keyword=";
 const textSearchButton = document.getElementById("mainSearch");
 const productUrl = "http://localhost:8080/products/";
 
-var idRandom = Math.floor((Math.random() * 10) + 1);
+var idRandom = Math.floor((Math.random() * 11) + 1);
 var urlProducts = catagoryUrl.concat("/").concat(idRandom.toString());
 
-var catagoryList = sessionStorage.getItem("catagories");
+var catagoryList = sessionStorage.getItem("catagories");// avoid request to database
 
 if(catagoryList==null){
     readCatagories()
