@@ -5,7 +5,7 @@ const searchUrl = "http://localhost:8080/search?keyword=";
 const textSearchButton = document.getElementById("mainSearch");
 const productUrl = "http://localhost:8080/products/";
 
-var idRandom = Math.floor((Math.random() * 11) + 1);
+var idRandom = Math.floor((Math.random() * 12) + 1);
 var urlProducts = catagoryUrl.concat("/").concat(idRandom.toString());
 
 var catagoryList = sessionStorage.getItem("catagories");// avoid request to database
@@ -61,14 +61,19 @@ function makeHyperlinkWith(name, url) {
 function makeFormWith(name, url,count) {
     const form = document.createElement("form");
     const button = document.createElement("button");
-    button.innerText = name.toString().concat("(").concat(count.toString()).concat(")");
+
+    if(count!=0){
+        button.innerText = name.toString().concat("(").concat(count.toString()).concat(")");
+    } else{
+        button.innerText = name.toString();
+    }
     form.action = "ideas.html";
     form.method="post";
     button.dataset.url = url;
     button.classList="btn btn-info btn-sm";
     button.onclick = function () {
         sessionStorage.setItem("catagoryUrl",this.dataset.url)
-        sessionStorage.setItem("catagoryName",this.innerText)
+        sessionStorage.setItem("catagoryName",name)
     };
     form.appendChild(button);
     return form;
