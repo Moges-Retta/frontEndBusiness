@@ -1,9 +1,10 @@
 "use strict";
+
 document.getElementById("technicalError").style.display = "none";
-const catagoryUrl = "http://localhost:8080/catagories";
-const searchUrl = "http://localhost:8080/search?keyword=";
+const catagoryUrl = "https://projectethio.herokuapp.com/catagories";
+const searchUrl = "https://projectethio.herokuapp.com/search?keyword=";
 const textSearchButton = document.getElementById("mainSearch");
-const productUrl = "http://localhost:8080/products/";
+const productUrl = "https://projectethio.herokuapp.com/products/";
 
 var idRandom = Math.floor((Math.random() * 16) + 1);
 var urlProducts = catagoryUrl.concat("/").concat(idRandom.toString());
@@ -38,8 +39,12 @@ function enterDetailsOf(catagories) {
     var div = document.getElementById("ideas");//.getElementsByTagName("ul")[0];
     var divG = document.getElementById("groupList");//.getElementsByTagName("ul")[0];
     for (const catagory of catagories._embedded.catagoryIdNameList) {
-        const a = makeHyperlinkWith(catagory.name, catagory._links.self.href);
-        const form = makeFormWith(catagory.name, catagory._links.self.href,catagory.count);
+        var url = catagory._links.self.href;
+        if(url.match('^http://')){
+            url = url.replace("http://","https://")
+        }
+        const a = makeHyperlinkWith(catagory.name, url);
+        const form = makeFormWith(catagory.name, url,catagory.count);
         div.appendChild(a);
         divG.appendChild(form);
     }
@@ -68,7 +73,7 @@ function makeFormWith(name, url,count) {
         button.innerText = name.toString();
     }
     form.action = "ideas.html";
-    form.method="post";
+    form.method="get";
     button.dataset.url = url;
     button.classList="btn btn-info btn-sm";
     button.onclick = function () {

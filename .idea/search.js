@@ -1,7 +1,7 @@
 "use strict";
 document.getElementById("technicalError").style.display = "none";
-const searchUrl = "http://localhost:8080/search?keyword=";
-const productUrl = "http://localhost:8080/products/";
+const searchUrl = "https://projectethio.herokuapp.com/search?keyword=";
+const productUrl = "https://projectethio.herokuapp.com/products/";
 
 var keyword = sessionStorage.getItem("keyword");
 

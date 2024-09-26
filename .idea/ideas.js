@@ -1,7 +1,7 @@
 "use strict";
 document.getElementById("technicalError").style.display = "none";
-const catagoryUrl = "http://localhost:8080/catagories";
-const productUrl = "http://localhost:8080/products/";
+const catagoryUrl = "https://projectethio.herokuapp.com/catagories";
+const productUrl = "https://projectethio.herokuapp.com/products/";
 
 var catagoryUrlkey = sessionStorage.getItem("catagoryUrl");
 var catagoryName =sessionStorage.getItem("catagoryName");
@@ -158,7 +158,7 @@ function DescriptionOf(product) {
     const a = document.createElement("a");
     a.target="_blank";
     a.rel="noopener noreferrer";
-    a.href="http://www.projectethio.com/";
+    a.href="https://sites.google.com/site/projectethio/";
     a.classList="btn btn-success btn-lg"
     const span =document.createElement("span");
     span.classList="glyphicon glyphicon-download";
@@ -188,7 +188,13 @@ async function readCatagories() {
 function enterDetailsOf(catagories) {
     var div = document.getElementById("ideas");//.getElementsByTagName("ul")[0];
     for (const catagory of catagories._embedded.catagoryIdNameList) {
-        const a = makeHyperlinkWith(catagory.name, catagory._links.self.href);
+        var url = catagory._links.self.href;
+        if(url.match('^http://')){
+            url = url.replace("http://","https://")
+        }
+
+        const a = makeHyperlinkWith(catagory.name, url);
+
         div.appendChild(a);
     }
 }
@@ -199,8 +205,10 @@ function makeHyperlinkWith(name, url) {
     hyperlink.href = "ideas.html";
     hyperlink.dataset.url = url;
     hyperlink.classList="dropdown-item";
+
     hyperlink.onclick = function () {
-        sessionStorage.setItem("catagoryUrl",this.dataset.url)
+        const d =this.dataset.url;
+            sessionStorage.setItem("catagoryUrl",this.dataset.url)
         sessionStorage.setItem("catagoryName",this.innerText)
     };
     return hyperlink;
